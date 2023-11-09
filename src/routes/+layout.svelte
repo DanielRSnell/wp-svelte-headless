@@ -6,4 +6,6 @@
 	<script defer src="/wp-content/uploads/scripts/anime.min.js"></script>
 </svelte:head>
 
-<slot />
+<body>
+	<slot />
+</body>

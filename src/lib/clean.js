@@ -65,5 +65,11 @@ export async function CleanMarkup(payload) {
   });
 
   // Convert the document back to a string and remove any redundant query strings
-  return document.body.toString().replace(/([?&]\w+=\w+)+/g, '').split(CORE_URL).join('');
+   const mainElement = document.querySelector('main');
+  if (mainElement) {
+    return mainElement.toString().replace(/([?&]\w+=\w+)+/g, '').split(CORE_URL).join('');
+  } else {
+    // Fallback to the body if 'main' element is not found
+    return document.body.toString().replace(/([?&]\w+=\w+)+/g, '').split(CORE_URL).join('');
+  }
 }
