@@ -30,8 +30,6 @@
 			window.addEventListener('popstate', () => {
 				// fetchDocument(window.location.pathname);
 			});
-
-			sphereAnimation();
 		}
 	});
 </script>
