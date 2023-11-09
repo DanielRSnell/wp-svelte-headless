@@ -9,6 +9,9 @@
 	documentStore.set(Document);
 
 	// Fetch document content and update the store
+	/**
+	 * @param {RequestInfo | URL} url
+	 */
 	async function fetchDocument(url) {
 		const res = await fetch(url);
 		if (res.ok) {
@@ -18,17 +21,19 @@
 	}
 
 	// Run on client-side after the component is mounted
-	// onMount(() => {
-	// 	if (browser) {
-	// 		// Fetch initial content
-	// 		fetchDocument(window.location.pathname);
+	onMount(() => {
+		if (browser) {
+			// Fetch initial content
+			// fetchDocument(window.location.pathname);
 
-	// 		// Listen for route changes
-	// 		window.addEventListener('popstate', () => {
-	// 			fetchDocument(window.location.pathname);
-	// 		});
-	// 	}
-	// });
+			// Listen for route changes
+			window.addEventListener('popstate', () => {
+				// fetchDocument(window.location.pathname);
+			});
+
+			sphereAnimation();
+		}
+	});
 </script>
 
 {@html $documentStore}
