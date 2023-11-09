@@ -12,16 +12,25 @@
 		if (isSphereAnimationAvailable()) {
 			sphereAnimation();
 		}
+		// Remove event listeners after the first trigger
+		document.removeEventListener('mousemove', handleMouseMove);
+		document.removeEventListener('scroll', handleScroll);
+	}
+
+	// Function to handle scroll
+	function handleScroll() {
+		if (isSphereAnimationAvailable()) {
+			sphereAnimation();
+		}
+		// Remove event listeners after the first trigger
+		document.removeEventListener('mousemove', handleMouseMove);
+		document.removeEventListener('scroll', handleScroll);
 	}
 
 	onMount(() => {
-		// Add event listener to the document for mouse movement
+		// Add event listeners to the document for mouse movement and scroll
 		document.addEventListener('mousemove', handleMouseMove);
-
-		// Optional: Cleanup the event listener when the component is unmounted
-		return () => {
-			document.removeEventListener('mousemove', handleMouseMove);
-		};
+		document.addEventListener('scroll', handleScroll);
 	});
 </script>
 
