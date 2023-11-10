@@ -4,7 +4,7 @@ export async function load({ fetch, params }) {
     const { slug } = params;
     
     // Fetch the content from the origin using the pathname
-    const response = await fetch(`/api/markup?pathname=/`);
+    const response = await fetch(`/api/markup?pathname=${slug}`);
 
     // Check if the response is OK
     if (!response.ok) {
