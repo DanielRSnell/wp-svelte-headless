@@ -24,3 +24,6 @@ export async function load({ request, fetch }) {
         }
     };
 }
+
+
+export const ssr = true;

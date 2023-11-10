@@ -25,4 +25,4 @@ export async function load({ request, fetch }) {
     };
 }
 
-export const prerender = true;
+export const ssr = true;
