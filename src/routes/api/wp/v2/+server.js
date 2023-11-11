@@ -10,7 +10,13 @@ export async function GET({ url }) {
     const response = await fetch(`${coreUrl}`);
     const data = await response.json();
 
-    return json(data);
+    return new Response(JSON.stringify(data), {
+      status: response.status,
+      headers: { 
+        'Content-Type': 'application/json',
+        'Cache-Control': 'max-age=3600'
+       }
+    });
     
   } catch (error) {
     return new Response(JSON.stringify({ error: error.message }), {
